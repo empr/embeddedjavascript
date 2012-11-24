@@ -76,6 +76,21 @@ JMVCTest = {
 			assertEqual("<ul>\n\t<li>sloth</li>\n\n\t<li>bear</li>\n\n\t<li>monkey</li>\n</ul>", compiled)
 			
 		}},
+
+    test_width_elements_left_bracket: function() { with(this) {
+      var compiled = new EJS({
+        element: 'test_template_left_bracket', 
+        type: '<'
+      }).render({animals: this.animals});
+      assertEqual("<ul>\n\t<li>sloth</li>\n\n\t<li>bear</li>\n\n\t<li>monkey</li>\n</ul>", compiled);
+
+      compiled = new EJS({
+        element: document.getElementById('test_template_left_bracket'),
+        type: '<'
+      }).render({animals: this.animals});
+      assertEqual("<ul>\n\t<li>sloth</li>\n\n\t<li>bear</li>\n\n\t<li>monkey</li>\n</ul>", compiled);
+    }},
+
 		test_error_forgot_closing_carrot: function() { with(this) {
 
 			var text = "<ul><% animals.each(function(animal){%>\n" +

@@ -54,7 +54,7 @@ EJS = function( options ){
 			this.text = options.element.innerHTML
 		}
 		this.name = options.element.id
-		this.type = '['
+    this.type = options.type ? options.type : '[';
 	}else if(options.url){
         options.url = EJS.endExt(options.url, this.extMatch);
 		this.name = this.name ? this.name : options.url;
